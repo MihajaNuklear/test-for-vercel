@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.french4dev.com
+
+# Sitemaps
+Sitemap: https://www.french4dev.com/sitemap.xml

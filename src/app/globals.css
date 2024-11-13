@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  font-family: 'Gilroy', sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance; /* Note: Cette propriété n'est pas standard */
+  }
+
+  .text-marquee-container {
+    width: 100vw; /* Utiliser toute la largeur de la vue */
+    overflow: hidden; /* S'assurer que le texte ne dépasse pas les limites */
+  }
+
+  .text-marquee {
+    display: inline-block; /* Afficher le texte en ligne pour le défilement horizontal */
+    min-width: 100%; /* Assurer que l'élément a une largeur minimale pour afficher tout le texte */
+    animation: marquee 30s linear infinite; /* Ajoute l'animation pour le défilement */
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  /* Cible les écrans de taille mobile */
+  .text-marquee {
+    animation: marquee-mobile 15s linear infinite; /* Animation plus rapide pour mobile */
+  }
+
+  @keyframes marquee-mobile {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/* styles/globals.css */
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy/Gilroy-Regular.otf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Assure que le texte est visible pendant le chargement de la police */
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy/Gilroy-Bold.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap; /* Assure que le texte est visible pendant le chargement de la police */
+}
+
+/* Swiper styles */
+.swiper-container {
+  position: relative;
+  padding-bottom: 40px; /* Reduced padding */
+}
+
+.swiper-wrapper {
+  margin-bottom: 60px; /* Add margin to create space for pagination */
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: -10px !important; /* Align to the bottom of the container */
+  left: 0;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  width: 30px; /* Increased width for line effect */
+  height: 4px; /* Reduced height for line effect */
+  border-radius: 2px; /* Slight rounding of edges */
+  background: #007aff;
+  opacity: 0.5;
+  margin: 0 5px; /* Add some space between lines */
+  transition: all 0.3s ease;
+}
+
+.swiper-container {
+  position: relative;
+  padding-bottom: 40px; /* Reduced padding */
+}
+
+.swiper-wrapper {
+  margin-bottom: 60px; /* Reduced margin to bring pagination closer */
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 0 !important; /* Align to the bottom of the container */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-container .swiper-pagination-bullet {
+  width: 30px;
+  height: 4px;
+  border-radius: 2px;
+  background: white;
+  opacity: 0.5;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.swiper-container .swiper-pagination-bullet-active {
+  width: 50px;
+  background: linear-gradient(to right, #7662F9, #28C8D3);
+  opacity: 1;
+}
+
+/* width */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0);
+  border-radius: 10px;
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(49, 125, 198, 0);
+  border-radius: 0;
+}
+
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
